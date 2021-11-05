@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TodoList.Models.TaskModel>
+
+@{
+    ViewData["Title"] = "Tasks list";
+}
+
+<h1>Task list</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Task" class="btn btn-primary">Create New</a>
+</p>
+@if ((ViewData["ActiveTasks"] as List<TaskModel>).Count() == 0 &&
+   (ViewData["InactiveTasks"] as List<TaskModel>).Count() == 0)
+{
+    <p>There are no tasks yet.</p>
+}
+else
+{
+    @foreach (var item in (ViewData["ActiveTasks"] as List<TaskModel>))
+    {
+        <div class="card w-75 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                    <span class="badge rounded-pill bg-info text-dark">@item.GetTaskStatus()</span>
+                </h5>
+
+
+                <p class="card-text">@Html.DisplayFor(modelItem => item.DetailedDescription)</p>
+
+                @if (item.CompletionDate != null)
+                {
+                    <p class="card-footer">Created: @item.CreationDate.ToString("dd/MM/yyyy HH:mm") | Will expire at: @item.CompletionDate?.ToString("dd/MM/yyyy HH:mm")</p>
+                }
+                else
+                {
+                    <p class="card-footer">Created: @item.CreationDate.ToString("dd/MM/yyyy HH:mm")</p>
+                }
+
+                <a asp-action="MakeTaskDone" asp-controller="Task" asp-route-id="@item.Id" class="btn btn-success mr-3">Done</a>
+                <a asp-action="Edit" asp-controller="Task" asp-route-id="@item.Id" class="btn btn-warning mr-3" target="_blank">Edit</a>
+                <a asp-action="Delete" asp-controller="Task" asp-route-id="@item.Id" class="btn btn-danger mr-3" target="_blank">Delete</a>
+            </div>
+        </div>
+    }
+<hr class="w-75 my-4" style="height: 2.6px;"/>
+    @foreach (var item in (ViewData["InactiveTasks"] as List<TaskModel>))
+    {
+        <div class="card w-75 mb-3">
+            <div class="card-body opacity-50 user-select-none">
+                <h5 class="card-title">
+                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                    <span class="badge rounded-pill bg-info text-dark">@item.GetTaskStatus()</span>
+                </h5>
+
+
+                <p class="card-text">@Html.DisplayFor(modelItem => item.DetailedDescription)</p>
+
+                @if (item.CompletionDate != null)
+                {
+                    <p class="card-footer">Created: @item.CreationDate.ToString("dd/MM/yyyy HH:mm") | Expired: @item.CompletionDate?.ToString("dd/MM/yyyy HH:mm")</p>
+                }
+                else
+                {
+                    <p class="card-footer">Created: @item.CreationDate.ToString("dd/MM/yyyy HH:mm")</p>
+                }
+
+                <a asp-action="Delete" asp-controller="Task" asp-route-id="@item.Id" class="btn btn-danger" target="_blank">Delete</a>
+            </div>
+        </div>
+    }
+}
+

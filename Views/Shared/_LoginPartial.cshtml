@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager 
+
+<ul class="navbar-nav">
+    @if (User.Identity.IsAuthenticated)
+    {
+                <li class="nav-item dropdown dropstart collapse navbar-collapse" id="navbarNavDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Settings
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a asp-controller="Identity" asp-action="ChangePassword" class="dropdown-item">Change password</a></li>
+                        <li><a asp-controller="Identity" asp-action="DeleteUser" class="dropdown-item">Delete user</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a asp-controller="Identity" asp-action="Logout" class="dropdown-item" style="color: #a60000; background: #ff000040; border-color: black;">Logout</a></li>
+                    </ul>
+                </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Identity"
+               asp-action="Registration">Registration</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Identity"
+               asp-action="Login">Login</a>
+        </li>
+    }
+</ul> 

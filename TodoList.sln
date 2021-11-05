@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList", "TodoList.csproj", "{C02087D0-4FE0-46E5-BEDA-E7C71B5FA177}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailService", "..\EmailService\EmailService.csproj", "{D038A7EA-343A-40C0-8897-C12EA8E2F1E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C02087D0-4FE0-46E5-BEDA-E7C71B5FA177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02087D0-4FE0-46E5-BEDA-E7C71B5FA177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02087D0-4FE0-46E5-BEDA-E7C71B5FA177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02087D0-4FE0-46E5-BEDA-E7C71B5FA177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D038A7EA-343A-40C0-8897-C12EA8E2F1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D038A7EA-343A-40C0-8897-C12EA8E2F1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D038A7EA-343A-40C0-8897-C12EA8E2F1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D038A7EA-343A-40C0-8897-C12EA8E2F1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E592668-5983-4358-B914-BD4EDD0BEE11}
+	EndGlobalSection
+EndGlobal

@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<TodoList.Models.TaskModel>
 
+@section ExternalStyles
+{ 
+    <link href="~/css/Task/create-view.css" rel="stylesheet" />
+}
+
 @{
     ViewData["Title"] = "Tasks list";
 }
 
-<h1>Task list</h1>
+<div class="header-wrapper">
+    <h1>Task list <a asp-action="Create" asp-controller="Task" class="create-task btn btn-primary rounded-circle h1">+</a></h1>
+</div>
 
-<p>
-    <a asp-action="Create" asp-controller="Task" class="btn btn-primary">Create New</a>
-</p>
 @if ((ViewData["ActiveTasks"] as List<TaskModel>).Count() == 0 &&
    (ViewData["InactiveTasks"] as List<TaskModel>).Count() == 0)
 {

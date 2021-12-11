@@ -38,13 +38,10 @@ namespace TodoList.Models
             get
             {
                 if (IsDone)
-                {
                     return false;
-                }
                 if (CompletionDate is null)
-                {
                     return true;
-                }
+                
                 return DateTime.Now < CompletionDate;
             }
         }

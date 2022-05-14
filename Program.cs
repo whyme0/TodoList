@@ -13,14 +13,14 @@ namespace TodoList
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).ConfigureAppConfiguration((hostContext, builder) =>
+            IHostBuilder hostBuilder = CreateHostBuilder(args).ConfigureAppConfiguration((hostContext, builder) =>
             {
                 if (hostContext.HostingEnvironment.IsDevelopment())
                 {
                     builder.AddUserSecrets<Program>();
                 }
-            })
-            .Build();
+            });
+            IHost host = hostBuilder.Build();
             host.Run();
         }
 
